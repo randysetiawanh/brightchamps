@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Job V1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- Color switcher Alternatives | you can remove this section -->
+	<link rel="stylesheet" type="text/css" href="assets/css/colors/switch.css">
+	<link href="assets/css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2">
+	<link href="assets/css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3">
+	<link href="assets/css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4">
+	<link href="assets/css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5">
+
+	<body>
+		<!-- This code is use for color chooser, you can delete -->
+		<div id="switch-color" class="color-switcher">
+			<div class="open"><i class="fas fa-cog"></i></div>
+			<h4>COLOR OPTION</h4>
+			<ul>
+				<li><a class="color-2" onclick="setActiveStyleSheet('color-2'); return false;" href="#"><i class="fas fa-cog"></i></a> </li>
+				<li><a class="color-3" onclick="setActiveStyleSheet('color-3'); return false;" href="#"><i class="fas fa-cog"></i></a> </li>
+				<li><a class="color-4" onclick="setActiveStyleSheet('color-4'); return false;" href="#"><i class="fas fa-cog"></i></a> </li>
+				<li><a class="color-5" onclick="setActiveStyleSheet('color-5'); return false;" href="#"><i class="fas fa-cog"></i></a> </li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+
+		<div class="wrapper">
+			<div class="wizard-content-1 pos-flex clearfix">
+				<div class="steps d-inline-block clearfix">
+					<span class="bg-shape"></span>
+					<ul class="tablist multisteps-form__progress">
+						<li class="multisteps-form__progress-btn js-active current">
+							<div class="step-btn-icon-text">
+								<span>1</span>
+								<div class="step-btn-icon float-left position-relative">
+									<img src="assets/img/bt1.png" alt="">
+								</div>
+								<div class="step-btn-text">
+									<h2 class="text-uppercase">Job Board</h2>
+									<span class="text-capitalize">Job Available</span>
+								</div>
+							</div>
+						</li>
+						<li class="multisteps-form__progress-btn">
+							<div class="step-btn-icon-text">
+								<span>2</span>
+								<div class="step-btn-icon float-left position-relative">
+									<img class="fix-image" src="assets/img/bt2.png" alt="">
+								</div>
+								<div class="step-btn-text">
+									<h2 class="text-uppercase">Send Details</h2>
+									<span class="text-capitalize">Job Available</span>
+								</div>
+							</div>
+						</li>
+						<li class="multisteps-form__progress-btn">
+							<div class="step-btn-icon-text">
+								<span>3</span>
+								<div class="step-btn-icon float-left position-relative">
+									<img class="fix-image-2" src="assets/img/bt3.png" alt="">
+								</div>
+								<div class="step-btn-text">
+									<h2 class="text-uppercase">ThankYou</h2>
+									<span class="text-capitalize">Job Available</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="step-inner-content clearfix position-relative">
+					<span class="bg-shape"></span>
+					<form class="multisteps-form__form" action="action.php" id="wizard" method="POST" enctype="multipart/form-data">
+						<div class="form-area position-relative">
+							<div class="multisteps-form__panel js-active" data-animation="scaleIn">
+								<div class="wizard-forms position-relative">
+									<span class="step-no position-absolute">Step 1</span>
+									<div class="wizard-progress">
+										<span>1 of 3 Completed</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 33%;">
+											</div>
+										</div>
+									</div>
+									<div class="wizard-inner-box">
+										<div class="inner-title text-center">
+											<h2>What kind of Job You Need ?</h2>
+											<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas </p>
+										</div>
+										<div id="need-job-slide-id" class="need-job-slide owl-carousel">
+											<label class="need-job-icon-text text-center">
+												<input type="radio" name="job_title" value="Ux designer label" class="j-checkbox" checked>
+												<span class="need-job-text-inner">
+													<span class="checkbox-circle-mark position-absolute"> </span>
+													<span class="need-job-icon">
+														<img src="assets/img/bt1.png" alt="">
+													</span>
+													<span class="need-job-text">
+														<span class="text-uppercase need-job-title">Ux designer</span>
+														<span class="text-capitalize need-job-text">Drop Designer</span>
+													</span>
+												</span>
+											</label>
+											<label class="need-job-icon-text text-center">
+												<input type="radio" name="job_title" value="Front Developer" class="j-checkbox">
+												<span class="need-job-text-inner">
+													<span class="checkbox-circle-mark position-absolute"> </span>
+													<span class="need-job-icon">
+														<img src="assets/img/bt2.png" alt="">
+													</span>
+													<span class="need-job-text">
+														<span class="text-uppercase need-job-title">Front Developer</span>
+														<span class="text-capitalize need-job-text">Drop Designer</span>
+													</span>
+												</span>
+											</label>
+											<label class="need-job-icon-text text-center">
+												<input type="radio" name="job_title" value="Php Developer" class="j-checkbox">
+												<span class="need-job-text-inner">
+													<span class="checkbox-circle-mark position-absolute"> </span>
+													<span class="need-job-icon">
+														<img src="assets/img/bt3.png" alt="">
+													</span>
+													<span class="need-job-text">
+														<span class="text-uppercase need-job-title">Php Developer</span>
+														<span class="text-capitalize need-job-text">Drop Designer</span>
+													</span>
+												</span>
+											</label>
+											<label class="need-job-icon-text text-center">
+												<input type="radio" name="job_title" value="Ux designer" class="j-checkbox">
+												<span class="need-job-text-inner">
+													<span class="checkbox-circle-mark position-absolute"> </span>
+													<span class="need-job-icon">
+														<img src="assets/img/nd1.png" alt="">
+													</span>
+													<span class="need-job-text">
+														<span class="text-uppercase need-job-title">Ux designer</span>
+														<span class="text-capitalize need-job-text">Drop Designer</span>
+													</span>
+												</span>
+											</label>
+											<label class="need-job-icon-text text-center">
+												<input type="radio" name="job_title" value="Ux designer" class="j-checkbox">
+												<span class="need-job-text-inner">
+													<span class="checkbox-circle-mark position-absolute"> </span>
+													<span class="need-job-icon">
+														<img src="assets/img/nd1.png" alt="">
+													</span>
+													<span class="need-job-text">
+														<span class="text-uppercase need-job-title">Ux designer</span>
+														<span class="text-capitalize need-job-text">Drop Designer</span>
+													</span>
+												</span>
+											</label>
+										</div>
+									</div>
+									<div class="actions">
+										<ul>
+											<li><span class="js-btn-next" title="NEXT">NEXT</span></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottom-vector position-absolute">
+									<img src="assets/img/sd1.png" alt="">
+								</div>
+							</div>
+							<!-- step 1 -->
+							<div class="multisteps-form__panel" data-animation="scaleIn">
+								<div class="wizard-forms form-step-2">
+									<span class="step-no position-absolute">Step 2</span>
+									<div class="wizard-progress">
+										<span>2 of 3 Completed</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 66%;">
+											</div>
+										</div>
+									</div>
+									<div class="wizard-inner-box">
+										<div class="inner-title text-center">
+											<h2>Please Send Detail ?</h2>
+											<p>Tation argumentum et usu, dicit viderer  </p>
+										</div>
+									</div>
+									<div class="details-form-area">
+										<div class="row">
+											<div class="col-lg-4">
+												<div class="form-input-inner position-relative has-float-label">
+													<input type="text" name="first_name" placeholder="First Name" class="form-control" required>
+													<label>First  Name</label>
+													<div class="icon-bg text-center">
+														<i class="fas fa-user"></i>
+													</div>
+													
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="form-input-inner position-relative has-float-label">
+													<input type="text" name="last_name" placeholder="Last Name" class="form-control">
+													<label>Last  Name</label>
+													<div class="icon-bg text-center">
+														<i class="fas fa-user"></i>
+													</div>
+													
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="form-input-inner position-relative has-float-label">
+													<input type="email" name="email" placeholder="Email" class="form-control required" required>
+													<label>Email</label>
+													<div class="icon-bg text-center">
+														<i class="fas fa-envelope"></i>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="form-input-inner position-relative has-float-label">
+													<input type="text" name="phone" placeholder="Phone" class="form-control" required>
+													<label>Phone</label>
+													<div class="icon-bg text-center">
+														<i class="fas fa-phone"></i>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-8">
+												<div class="form-input-inner select-option-area position-relative">
+													<select name="country_list">
+														<option>Select Country</option>
+														<option>England</option>
+														<option>Australia</option>
+														<option>Brazil</option>
+														<option>USA</option>
+														<option>Canada</option>
+														<option>UAE</option>
+														<option>Spain</option>
+													</select>
+													<div class="icon-bg text-center">
+														<i class="fas fa-flag-checkered"></i>
+													</div>
+												</div>
+											</div>
+											<div class="input-filed-innerbox">
+												<div class="row">
+													<div class="col-lg-8">
+														<div class="row">
+															<div class="col-lg-6">
+																<div class="form-input-inner select-option-area position-relative">
+																	<select name="city_list">
+																		<option>Select City</option>
+																		<option>Barlin</option>
+																		<option>Sydney</option>
+																		<option>Madrid</option>
+																		<option>NY</option>
+																		<option>Toronto</option>
+																		<option>Dubai</option>
+																		<option>Chennai</option>
+																	</select>
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-handshake"></i>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-input-inner position-relative date-of-birth">
+																	<input data-date-format="dd/mm/yyyy" placeholder="Birth Day" class="datepicker">
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-bullhorn"></i>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-input-inner position-relative has-float-label">
+																	<input type="text" name="address" placeholder="Address 2" class="form-control">
+																	<label>Address</label>
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-bullhorn"></i>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-input-inner select-option-area position-relative">
+																	<select name="position_list">
+																		<option>Choose Position</option>
+																		<option>Intern</option>
+																		<option>Junior Developer</option>
+																		<option>Senior Developer</option>
+																		<option>UI/UX Designer</option>
+																		<option>Designer</option>
+																		<option>HR</option>
+																		<option>Others</option>
+																	</select>
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-user"></i>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-4">
+														<div class="form-input-inner gender-select position-relative">
+															<h3>Gender</h3>
+															<label>
+																<input type="radio" name="gender" value="Male" checked required>
+																<span class="checkmark">Male</span>
+															</label>
+															<label>
+																<input type="radio" name="gender" value="Female">
+																<span class="checkmark">Female</span>
+															</label>
+															<div class="icon-bg text-center">
+																<i class="fas fa-transgender"></i>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-input-inner add-textarea  position-relative">
+												<div class="col-lg-12">
+													<textarea name="add_info" placeholder="Additional-info"></textarea>
+													<div class="icon-bg text-center">
+														<i class="fas fa-edit"></i>
+													</div>
+												</div>
+											</div>
+											<div class="wizard-document-upload">
+												<div class="custom-file form-input-inner position-relative">
+													<input type="file" class="custom-file-input" name="file_upload" id="customFile">
+													<label class="custom-file-label" for="customFile">Add Your CV</label>
+													<div class="file-size-text position-relative">Only : pdf / doc Size: lessthan 1 Mb</div>
+													<div class="icon-bg text-center">
+														<i class="fas fa-edit"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="actions">
+										<ul>
+											<li><span class="js-btn-prev" title="BACK"> Back</span></li>
+											<li><button type="submit" name="submit"><span class="js-btn-next" title="NEXT">Submit </span></button></li>
+										</ul>
+									</div>
+									<div class="bottom-vector position-absolute">
+										<img src="assets/img/sd1.png" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- step 2 -->
+							<div class="multisteps-form__panel" data-animation="scaleIn">
+								<div class="wizard-forms form-step-3">
+									<span class="step-no position-absolute">Step 3</span>
+									<div class="wizard-progress">
+										<span>3 of 3 Completed</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 100%;">
+											</div>
+										</div>
+									</div>
+									<div class="wizard-inner-box">
+										<div class="thank-content text-center">
+											<div class="thank-img">
+												<img src="assets/img/th1.png" alt="">
+											</div>
+											<div class="thank-text">
+												<h2>Thankyou For submition</h2>
+												<p><span>Mike Loen</span> We will Email you soon</p>
+											</div>
+											<div class="thank-subscribe position-relative">
+												<input class="email" name="subs_email" type="email" placeholder="Subcribe For daily update Jobs">
+												<button type="submit" name="email_submit" value="Submit"> <i class="fas fa-envelope"></i></button>
+											</div>
+											<div class="thank-btn text-uppercase">
+												<a href="index.html">Back to home</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- step 3 -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/owl.carousel.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="assets/js/form-step.js"></script>
+		<script src="assets/js/jquery.validate.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/switch.js"></script>
+		<script>
+			$("#customFile").change(function() {
+				filename = this.files[0].name
+			});
+			$(".custom-file-input").on("change", function() {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+			});
+			$('.datepicker').datepicker({
+				clearBtn: true,
+				format: "dd/mm/yyyy"
+			});
+		</script>
+	</body>
+
+	</html>

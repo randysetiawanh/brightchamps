@@ -1,0 +1,309 @@
+/*---------------------------------------------------- */
+/*Responsive area*/
+/*----------------------------------------------------*/
+@media screen and (min-width: 1300.1px) {
+	.pos-flex {
+		display: flex;
+	}
+}
+
+/**
+ * min
+ */
+ @media screen and (max-width: 1800px) {
+ 	.wizard-progress {
+ 		left: -58%;
+ 	}
+ 	.wrapper {
+ 		transform: scale(0.95);
+ 	}
+ }
+
+ @media screen and (max-width: 1600px) {
+ 	.wrapper {
+ 		padding: 30px 0;
+ 	}
+ 	.wizard-inner-box .need-job-icon-text .need-job-text-inner {
+ 		width: 260px;
+ 	}
+ 	.wizard-content-1 {
+ 		padding: 30px;
+ 	}
+ 	.wizard-content-1 .steps {
+ 		width: 345px;
+ 	}
+ 	.step-inner-content {
+ 		max-width: 1040px;
+ 	}
+ }
+
+ @media screen and (max-width: 1440px) {
+ 	.wrapper {
+ 		padding: 0px 0;
+ 	}
+ 	.step-no {
+ 		right: 0px;
+ 	}
+ 	.wizard-content-1 {
+ 		padding: 30px;
+ 	}
+
+ 	.wizard-content-1 .steps {
+ 		padding: 30px;
+ 	}
+
+ 	.step-inner-content {
+ 		max-width: 1000px;
+ 	}
+
+ 	.wizard-inner-box .inner-title h2 {
+ 		font-size: 45px;
+ 	}
+
+ 	.wizard-progress {
+ 		left: -40%;
+ 		bottom: -120px;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-text h2 {
+ 		font-size: 16px;
+ 	}
+
+ 	.step-inner-content {
+ 		padding: 120px 41px 80px;
+ 	}
+
+ 	.actions {
+ 		z-index: 3;
+ 	}
+
+ 	.wizard-inner-box .need-job-slide .owl-nav .owl-prev {
+ 		left: -30px;
+ 	}
+
+ 	.wizard-inner-box .need-job-slide .owl-nav .owl-next {
+ 		right: -30px;
+ 	}
+
+ 	.actions li,
+ 	.thank-content .thank-btn {
+ 		width: 160px;
+ 		height: 60px;
+ 		font-size: 18px;
+ 		line-height: 60px;
+ 	}
+
+ 	.step-btn-icon-text:before {
+ 		right: -90px;
+ 	}
+
+ 	.step-btn-icon-text:after {
+ 		bottom: -55px;
+ 	}
+
+
+ }
+ @media screen and (max-width: 1399px) {
+ 	.wrapper {
+ 		padding: 0;
+ 	}
+ 	.step-no {
+ 		right: -3px;
+ 		top: -95px;
+ 	}
+ 	.wizard-progress {
+ 		left: -50%;
+ 	}
+ 	.step-inner-content {
+ 		max-width: 875px;
+ 	}
+ 	.wizard-content-1 .steps li.js-active.current .step-btn-icon-text:before {
+ 		width: 75px;
+ 	}
+ 	.step-btn-icon-text:before {
+ 		right: -70px;
+ 	}
+ }
+ @media screen and (max-width: 1300px) {
+ 	.wrapper {
+ 		transform: scale(1);
+ 		padding: 10px 0;
+ 	}
+ 	.step-no {
+ 		right: 0px;
+ 		top: 10px;
+ 	}
+ 	.wizard-content-1 {
+ 		.steps {
+ 			max-width: 100%;
+ 			width: 100%;
+ 			max-height: auto;
+ 			padding-bottom: 20px;
+ 		}
+ 	}
+ 	
+
+ 	.wizard-content-1 .steps .bg-shape,
+ 	.step-inner-content .bg-shape {
+ 		display: none;
+ 	}
+
+ 	.wizard-content-1 .steps li {
+ 		width: inherit;
+ 		text-align: center;
+ 	}
+
+ 	.step-btn-icon-text:before,
+ 	.wizard-content-1 .steps li.js-active .step-btn-icon-text:after {
+ 		display: none;
+ 	}
+
+ 	.multisteps-form__progress {
+ 		text-align: center;
+ 		padding-top: 0;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-icon {
+ 		float: none !important;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-icon {
+ 		margin: 0px 10px;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-text {
+ 		padding-top: 20px;
+ 	}
+
+ 	.step-inner-content {
+ 		max-width: 100%;
+ 		margin-top: 50px;
+ 		padding-top: 40px;
+ 	}
+
+ 	.wizard-inner-box .need-job-icon-text .need-job-text-inner {
+ 		width: 310px;
+ 	}
+
+ 	.wizard-progress {
+ 		position: static;
+ 		margin-bottom: 40px;
+ 	}
+ }
+
+ @media screen and (max-width: 1070px) {
+ 	.wizard-inner-box .need-job-icon-text .need-job-text-inner {
+ 		width: 260px;
+ 	}
+ }
+
+
+ @media screen and (max-width: 991px) {
+ 	.wizard-inner-box .inner-title h2,
+ 	.thank-content .thank-text h2 {
+ 		font-size: 40px;
+ 	}
+
+ 	.bottom-vector {
+ 		display: none;
+ 	}
+
+ 	.details-form-area .wizard-document-upload .custom-file {
+ 		width: 100%;
+ 	}
+ 	.step-btn-icon-text > span {
+ 		display: none;
+ 	}
+ 	.need-job-slide .owl-item {
+ 		text-align: center;
+ 	}
+ }
+ @media screen and (max-width: 580px) {
+ 	.step-btn-icon-text .step-btn-icon {
+ 		display: none;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-text {
+ 		margin: 0px 10px;
+ 	}
+
+ 	.step-btn-icon-text .step-btn-text h2 {
+ 		color: #000;
+ 	}
+
+ 	.js-active .step-btn-icon-text .step-btn-text h2 {
+ 		color: #7650e0;
+ 	}
+ }
+ @media screen and (max-width: 480px) {
+ 	.step-btn-icon-text .step-btn-text {
+ 		padding-top: 10px;
+ 	}
+
+ 	.wizard-content-1 .steps li {
+ 		margin-bottom: 20px;
+ 	}
+
+ 	.step-inner-content {
+ 		padding: 30px;
+ 	}
+
+ 	.wizard-inner-box .inner-title h2, .thank-content .thank-text h2 {
+ 		font-size: 30px;
+ 	}
+
+ 	.wizard-inner-box .need-job-icon-text .need-job-text-inner {
+ 		width: 270px;
+ 	}
+
+ 	.wizard-inner-box .need-job-slide .owl-nav {
+ 		text-align: center;
+ 		margin-top: 30px;
+ 	}
+
+ 	.wizard-inner-box .need-job-slide .owl-nav .owl-next,
+ 	.wizard-inner-box .need-job-slide .owl-nav .owl-prev {
+ 		position: static;
+ 		display: inline-block;
+ 		height: 40px;
+ 		width: 40px;
+ 		line-height: 40px;
+ 		transform: translateY(0);
+ 	}
+
+ 	.wizard-inner-box .need-job-slide {
+ 		padding: 50px 0px;
+ 	}
+
+ 	.wizard-inner-box .inner-title p {
+ 		font-size: 16px;
+ 	}
+
+ 	.actions li, .thank-content .thank-btn {
+ 		height: 50px;
+ 		width: 120px;
+ 		line-height: 50px;
+ 	}
+
+ 	.details-form-area .gender-select label {
+ 		padding-left: 15px;
+ 	}
+
+ 	.details-form-area .wizard-document-upload .custom-file .custom-file-label:after {
+ 		width: 100px;
+ 	}
+
+ 	.step-no {
+ 		display: none;
+ 	}
+ }
+ @media screen and (max-width: 380px) {
+ 	.wizard-content-1 {
+ 		padding: 0px;
+ 	}
+
+ 	.step-inner-content {
+ 		padding: 15px;
+ 	}
+ }
+/*---------------------------------------------------- */

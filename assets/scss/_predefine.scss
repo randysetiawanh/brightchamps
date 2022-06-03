@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  background: $bage-bg;
+  color: $body-color;
+  font-family: $body-font;
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-moz-selection {
+  color: $color-secondary;
+  background-color: $base-color;
+}
+
+::selection {
+  color: $color-secondary;
+  background-color: $base-color;
+}
+
+::-moz-selection {
+  color: $color-secondary;
+  background-color: $base-color;
+}
+
+// global settings
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: .3s all ease-in-out;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-control:focus,
+button:visited,
+button.active,
+button:hover,
+button:focus,
+input:visited,
+input.active,
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus,
+a:hover,
+a:focus,
+a:visited,
+a.active,
+select,
+select:hover,
+select:focus,
+select:visited {
+  outline: none;
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.dark-version {
+    background: #313131;
+    .step-inner-content, .wizard-content-1 .steps {
+      background-image: linear-gradient(-90deg, #555858 0%, #565353 100%);
+    }
+    .step-no, .step-btn-icon-text .step-btn-text h2, .step-btn-icon-text .step-btn-text span, .wizard-inner-box .inner-title h2, .wizard-inner-box .inner-title p, .details-form-area .wizard-document-upload .custom-file .file-size-text {
+      color: #ffffff;
+    }
+    .details-form-area .gender-select h3 {
+      color: #111;
+    }
+}
+
+p,label{
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: $heading;
+}
+
+// *** Margin/Padding Setting ***//
+.pt150 {padding-top: 150px}
+
+.multisteps-form__panel[data-animation=scaleOut] {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.multisteps-form__panel[data-animation=scaleOut].js-active {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.multisteps-form__panel[data-animation=slideHorz] {
+  left: -50px;
+}
+.multisteps-form__panel[data-animation=slideHorz].js-active {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+  -o-transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+  transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  left: 0;
+}
+.multisteps-form__panel[data-animation=slideVert] {
+  top: 30px;
+}
+.multisteps-form__panel[data-animation=slideVert].js-active {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  top: 0;
+}
+.multisteps-form__panel[data-animation=fadeIn].js-active {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.multisteps-form__panel[data-animation=scaleIn] {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.multisteps-form__panel[data-animation=scaleIn].js-active {
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.actions {
+  bottom: 0;
+  position: relative;
+  float: right;
+  margin-bottom: 20px;
+  li {
+    color: $color-white;
+    height: 74px;
+    width: 210px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    line-height: 74px;
+    border-radius: 50px;
+    display: inline-block;
+    background-color:  $base-color;
+    button {
+      color: $color-white !important;
+      border: none;
+      background-color: transparent;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 0;
+    }
+    span {
+      display: block;
+      width: 100%;
+    }
+  }
+}

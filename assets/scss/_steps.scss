@@ -1,0 +1,246 @@
+.wrapper {
+	max-width: 1715px;
+	margin: auto;
+	padding: 90px 0;
+}
+
+.wizard-content-1 {
+
+	.steps {
+		max-width: 384px;
+		max-height: 932px;
+		float: left;
+		position: relative;
+		border-radius: 30px;
+		padding: 40px 40px 240px 40px;
+		box-shadow: 0px 1px 29px 0px rgba(1, 1, 1, 0.1);
+		background-image: linear-gradient( 180deg, rgb(237,230,255) 0%, rgb(255,255,255) 100%);
+		.bg-shape {
+			top: -5px;
+			left: -5px;
+			z-index: -1;
+			width: 95%;
+			height: 95%;
+			position: absolute;
+			border-radius: 30px;
+			transform: rotate(-1deg);
+			background-color: $base-color;
+		}
+		li {
+			width: 100%;
+			margin-bottom: 45px;
+			display: inline-block;
+			&.js-active.current {
+				.step-btn-icon-text {
+					&:after {
+						display: block;
+					}
+					&:before {
+						width: 95px;
+					}
+					.step-btn-icon  {
+						&:after {
+							border: 5px solid $base-color;
+							display: block;
+						}
+					}
+					.step-btn-text {
+						h2 {
+							color: $base-color;
+						}
+					}
+				}
+				&:last-child {
+					.step-btn-icon-text  {
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.step-btn-icon-text {
+	position: relative;
+	>span {
+		position: absolute;
+		width: 45px;
+		height: 45px;
+		background: #eaeaea;
+		border-radius: 100%;
+		text-align: center;
+		z-index: 11;
+		line-height: 35px;
+		font-weight: bold;
+		top: -11px;
+		border: 6px solid #fff;
+	}
+	&:after {
+		content: '';
+		height: 25px;
+		width: 2px;
+		left: 60px;
+		display: none;
+		bottom: -74px;
+		position: absolute;
+		background-color: $base-color;
+	}
+	&:before {
+		top: 62px;
+		right: -115px;
+		content: '';
+		width: 0px;
+		z-index: 2;
+		height: 2px;
+		position: absolute;
+		background-color: #000;
+	}
+	.step-btn-icon {
+		z-index: 1;
+		position: relative;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		.fix-image {
+			position: relative;
+			left: -16px;
+			top: -3px;
+		}
+		.fix-image-2 {
+			position: relative;
+			left: 0px;
+			top: -8px;
+		}
+		&:before {
+			left: -9px;
+			top: -3px;
+			z-index: -1;
+			content: '';
+			height: 145px;
+			width: 145px;
+			border-radius: 100%;
+			position: absolute;
+			background: #e9e9e9;
+		}
+		&:after {
+			width: 145px;
+			height: 145px;
+			content: "";
+			position: absolute;
+			left: -9px;
+			top: -4px;
+			border-radius: 100%;
+			z-index: -1;
+
+		}
+	}
+	.step-btn-text {
+		padding-top: 50px;
+		h2 {
+			font-size: 20px;
+			font-weight: 900;
+			color: $color-blackis;
+		}
+		span {
+			font-size: 12px;
+			font-family: $heading;
+		}
+	}
+}
+/* ==========================================================================
+   multistep css
+   ========================================================================== */
+//mixins
+@mixin transition-mix ($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+	transition-property: $property;
+	transition-duration: $duration;
+	transition-timing-function: $timing;
+	transition-delay: $delay;
+}
+
+@mixin position-absolute ($top: null, $left: null, $right: null, $bottom: null) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+}
+
+
+//multisteps progress styles
+.multisteps-form__progress {
+	padding-top: 60px;
+	height: 100%;
+}
+
+//multisteps form styles
+
+//multisteps panels styles
+.multisteps-form__panel {
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s ease;
+	overflow: hidden;
+	height: 0;
+
+    //active panels
+    &.js-active {
+    	opacity: 1;
+    	visibility: visible;
+    	overflow: visible;
+    	height: auto;
+    }
+
+    //scaleOut animation
+    &[data-animation="scaleOut"] {
+    	transform: scale(1.1);
+
+    	&.js-active {
+    		@include transition-mix;
+
+    		transform: scale(1);
+    	}
+    }
+
+    //slideHorz animation
+    &[data-animation="slideHorz"] {
+    	left: -50px;
+
+    	&.js-active {
+    		@include transition-mix($duration: .25s, $timing: cubic-bezier(0.2, 1.13, 0.38, 1.43));
+
+    		left: 0;
+    	}
+    }
+
+    //slideVert animation
+    &[data-animation="slideVert"] {
+    	top: 30px;
+
+    	&.js-active {
+    		@include transition-mix();
+
+    		top: 0;
+    	}
+    }
+
+    //fadeIn animation
+    &[data-animation="fadeIn"] {
+
+    	&.js-active {
+    		@include transition-mix($duration: .3s);
+    	}
+    }
+
+    //scaleOut
+    &[data-animation="scaleIn"] {
+    	transform: scale(.9);
+
+    	&.js-active {
+    		@include transition-mix;
+
+    		transform: scale(1);
+    	}
+    }
+}

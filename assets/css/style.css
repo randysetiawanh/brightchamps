@@ -29,12 +29,12 @@ body {
 
 ::selection {
   color: #fff;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 
 ::-moz-selection {
   color: #fff;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 
 ul {
@@ -195,7 +195,7 @@ h6 {
   line-height: 74px;
   border-radius: 50px;
   display: inline-block;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .actions li button {
   color: #fff !important;
@@ -239,7 +239,7 @@ h6 {
   position: absolute;
   border-radius: 30px;
   transform: rotate(-1deg);
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .wizard-content-1 .steps li {
   width: 100%;
@@ -253,11 +253,11 @@ h6 {
   width: 95px;
 }
 .wizard-content-1 .steps li.js-active.current .step-btn-icon-text .step-btn-icon:after {
-  border: 5px solid #7650e0;
+  border: 5px solid #4360fd;
   display: block;
 }
 .wizard-content-1 .steps li.js-active.current .step-btn-icon-text .step-btn-text h2 {
-  color: #7650e0;
+  color: #4360fd;
 }
 .wizard-content-1 .steps li.js-active.current:last-child .step-btn-icon-text:after {
   display: none;
@@ -287,7 +287,7 @@ h6 {
   display: none;
   bottom: -74px;
   position: absolute;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .step-btn-icon-text:before {
   top: 62px;
@@ -439,7 +439,7 @@ h6 {
   height: 23px;
 }
 .wizard-progress .progress .progress-bar {
-  background-color: #7650e0;
+  background-color: #4360fd;
   border-radius: 30px;
 }
 
@@ -475,7 +475,7 @@ h6 {
   position: absolute;
   border-radius: 30px;
   transform: rotate(1deg);
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 
 .step-no {
@@ -517,7 +517,7 @@ h6 {
 .wizard-inner-box .need-job-slide .owl-nav .owl-next:hover,
 .wizard-inner-box .need-job-slide .owl-nav .owl-prev:hover {
   color: #fff;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .wizard-inner-box .need-job-slide .owl-nav .owl-prev {
   left: -105px;
@@ -563,7 +563,7 @@ h6 {
   height: 25px;
   position: absolute;
   border-radius: 100%;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .wizard-inner-box .need-job-icon-text .need-job-text-inner span {
   display: block;
@@ -585,13 +585,13 @@ h6 {
   color: #000000;
 }
 .wizard-inner-box .j-checkbox:checked ~ .need-job-text-inner {
-  border: 2px solid #7650e0;
+  border: 2px solid #4360fd;
 }
 .wizard-inner-box .j-checkbox:checked ~ .need-job-text-inner .checkbox-circle-mark:after {
   display: block;
 }
 .wizard-inner-box .j-checkbox:checked ~ .need-job-text-inner .checkbox-circle-mark:before {
-  border: 2px solid #7650e0;
+  border: 2px solid #4360fd;
 }
 
 .details-form-area {
@@ -644,7 +644,7 @@ h6 {
   width: 35px;
   height: 35px;
   position: relative;
-  color: #7650e0;
+  color: #4360fd;
   border-radius: 100%;
   box-shadow: 0px 1px 29px 0px rgba(1, 1, 1, 0.09);
 }
@@ -720,7 +720,7 @@ h6 {
   z-index: 3;
   border-radius: 5px;
   padding: 5px 10px;
-  background: #7650e0;
+  background: #4360fd;
   line-height: 1;
 }
 .details-form-area .has-float-label label.error {
@@ -732,7 +732,7 @@ h6 {
   color: #5756a2;
 }
 .details-form-area .has-float-label .form-control:focus {
-  border: 2px solid #7650e0;
+  border: 2px solid #4360fd;
 }
 .details-form-area .has-float-label .form-control:focus::-webkit-input-placeholder {
   color: transparent;
@@ -752,7 +752,7 @@ h6 {
   background: transparent;
 }
 .details-form-area .has-float-label .form-control:focus .form-input-inner .icon-bg {
-  background-color: #7650e0 !important;
+  background-color: #4360fd !important;
 }
 .details-form-area .input-filed-innerbox {
   width: 100%;
@@ -770,7 +770,7 @@ h6 {
 .details-form-area .wizard-document-upload .custom-file .icon-bg {
   top: 0;
   z-index: 1;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .details-form-area .wizard-document-upload .custom-file .icon-bg i {
   color: #fff;
@@ -797,7 +797,7 @@ h6 {
   line-height: 72px;
   text-align: center;
   font-family: "Poppins";
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .details-form-area .wizard-document-upload .custom-file .file-size-text {
   top: 60px;
@@ -826,7 +826,7 @@ h6 {
 }
 .thank-content .thank-text p span {
   font-weight: 700;
-  color: #7650e0;
+  color: #4360fd;
 }
 .thank-content .thank-subscribe {
   margin: 0 auto;
@@ -868,7 +868,7 @@ h6 {
   border-radius: 50px;
   font-weight: 900;
   line-height: 75px;
-  background-color: #7650e0;
+  background-color: #4360fd;
 }
 .thank-content .thank-btn a {
   width: 100%;
@@ -1117,7 +1117,7 @@ h6 {
   }
 
   .js-active .step-btn-icon-text .step-btn-text h2 {
-    color: #7650e0;
+    color: #4360fd;
   }
 }
 @media screen and (max-width: 480px) {

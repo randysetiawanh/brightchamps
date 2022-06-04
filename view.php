@@ -85,7 +85,6 @@ include 'connect.php';
 								<th scope="col">City</th>
 								<th scope="col">Gender</th>
 								<th style="display: flex; width: 180px;border-bottom: 1px solid #000000" scope="col">Address</th>
-								<th scope="col">Position</th>
 								<th scope="col">Info</th>
 								<th scope="col">Resume</th>
 							</tr>
@@ -107,7 +106,6 @@ include 'connect.php';
 									<td><?php echo $city_list; ?></td>
 									<td><?php echo $gender; ?></td>
 									<td><?php echo $address; ?></td>
-									<td><?php echo $position_list; ?></td>
 									<td><?php echo $add_info; ?></td>
 									<td><a target="_blank" href="uploads/<?php echo $resume; ?>">View</a></td>
 								</tr>

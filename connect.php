@@ -10,7 +10,7 @@ class CodenodForm{
 	 */
 	public function __construct()
 	{
-		$this->conn=new mysqli("localhost","USER","PASS","DBNAME") or die("connetion error!"); // please change with your mysql detail
+		$this->conn=new mysqli("localhost","root","Minggu563","brightchamps") or die("connetion error!"); // please change with your mysql detail
 		
 	}
 
@@ -116,12 +116,14 @@ class CodenodForm{
 	/**
 	 * show all row
 	 */
-	public function showAll($table)
-	{
-		$query=mysqli_query($this->conn,"SELECT * FROM $table");	
-
+	public function showAll($table){
+		$query=mysqli_query($this->conn,"SELECT * FROM $table");
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
+	}
 
+	public function showAllJob($table){
+		$query=mysqli_query($this->conn,"SELECT $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.category_id ORDER BY $table.job_name ASC");
+		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 
 	/**
@@ -135,11 +137,10 @@ class CodenodForm{
 	 * @param [type] $city_list     [description]
 	 * @param [type] $gender        [description]
 	 * @param [type] $address       [description]
-	 * @param [type] $position_list [description]
 	 * @param [type] $add_info      [description]
 	 * @param [type] $table         [description]
 	 */
-	public function Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$position_list,$add_info,$upload, $upload_tmp, $upload_size, $table)
+	public function Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload, $upload_tmp, $upload_size, $table)
 	{
 		$filename = $upload;
 		
@@ -177,7 +178,7 @@ class CodenodForm{
 				// get email
 				$sql = "SELECT * FROM $table WHERE email='$email'";
 				$res=mysqli_query($this->conn,$sql);
-				if (mysqli_num_rows($res) > 0) {
+				if (mysqli_num_rows($res) > 10000) {
 					$row = mysqli_fetch_assoc($res);
 					if($email==$row['email'])
 					{
@@ -187,7 +188,7 @@ class CodenodForm{
 					}
 				} else {
 					if(move_uploaded_file($upload_tmp,($path . $filename)) ) {
-						mysqli_query($this->conn,"INSERT INTO $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', position_list='$position_list', add_info='$add_info', resume='$filename', created='$created'" ) or die(mysqli_error($this->conn));
+						mysqli_query($this->conn,"INSERT INTO $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', add_info='$add_info', resume='$filename', created='$created'" ) or die(mysqli_error($this->conn));
 						return true;
 					} else {
 						echo "fail to upload";
@@ -226,7 +227,7 @@ class CodenodForm{
 	 * @param string $address address
 	 * @param db $table
 	 */
-	public function Update($id,$job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$position_list,$add_info,$upload,$upload_tmp,$upload_size,$table){
+	public function Update($id,$job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload,$upload_tmp,$upload_size,$table){
 		
 		$filename = $upload;
 		
@@ -260,7 +261,7 @@ class CodenodForm{
 				$created = @date('Y-m-d H:i:s');
 
 				if(move_uploaded_file($upload_tmp,($path . $filename)) ) {
-					mysqli_query($this->conn,"UPDATE $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', position_list='$position_list', add_info='$add_info', resume='$filename', created='$created' WHERE id=$id") or die(mysqli_error($this->conn));
+					mysqli_query($this->conn,"UPDATE $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', add_info='$add_info', resume='$filename', created='$created' WHERE id=$id") or die(mysqli_error($this->conn));
 					return true;
 				} 
 			}

@@ -1,3 +1,6 @@
+<?php
+include 'connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +17,6 @@
 
 	<body>
 		<div class="clearfix"></div>
-
 		<div class="wrapper">
 			<div class="wizard-content-1 pos-flex clearfix">
 				<div class="steps d-inline-block clearfix">
@@ -40,7 +42,7 @@
 								</div>
 								<div class="step-btn-text">
 									<h2 class="text-uppercase">Send Details</h2>
-									<span class="text-capitalize">Job Available</span>
+									<span class="text-capitalize">Candidate Informations</span>
 								</div>
 							</div>
 						</li>
@@ -52,7 +54,7 @@
 								</div>
 								<div class="step-btn-text">
 									<h2 class="text-uppercase">ThankYou</h2>
-									<span class="text-capitalize">Job Available</span>
+									<span class="text-capitalize">Job Submitted</span>
 								</div>
 							</div>
 						</li>
@@ -65,87 +67,36 @@
 							<div class="multisteps-form__panel js-active" data-animation="scaleIn">
 								<div class="wizard-forms position-relative">
 									<span class="step-no position-absolute">Step 1</span>
-									<div class="wizard-progress">
-										<span>1 of 3 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 33%;">
-											</div>
-										</div>
-									</div>
 									<div class="wizard-inner-box">
 										<div class="inner-title text-center">
 											<h2>What kind of Job You Need ?</h2>
 											<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas </p>
 										</div>
 										<div id="need-job-slide-id" class="need-job-slide owl-carousel">
+										<?php
+										$rows=$obj->showAllJob("job_list");
+										foreach($rows as $info){
+											extract($info);
+										?>
 											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="Ux designer label" class="j-checkbox" checked>
+												<input type="radio" name="job_title" value="<?php echo $job_name; ?>" class="j-checkbox" required />
 												<span class="need-job-text-inner">
 													<span class="checkbox-circle-mark position-absolute"> </span>
 													<span class="need-job-icon">
 														<img src="assets/img/bt1.png" alt="">
 													</span>
 													<span class="need-job-text">
-														<span class="text-uppercase need-job-title">Ux designer</span>
-														<span class="text-capitalize need-job-text">Drop Designer</span>
+														<span class="text-uppercase need-job-title"><?php echo mb_strlen($job_name) > 20 ? mb_substr($job_name, 0, 20) . ".." : $job_name; ?></span>
+														<span class="text-capitalize need-job-text"><?php echo $category_name; ?></span>
 													</span>
 												</span>
 											</label>
-											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="Front Developer" class="j-checkbox">
-												<span class="need-job-text-inner">
-													<span class="checkbox-circle-mark position-absolute"> </span>
-													<span class="need-job-icon">
-														<img src="assets/img/bt2.png" alt="">
-													</span>
-													<span class="need-job-text">
-														<span class="text-uppercase need-job-title">Front Developer</span>
-														<span class="text-capitalize need-job-text">Drop Designer</span>
-													</span>
-												</span>
-											</label>
-											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="Php Developer" class="j-checkbox">
-												<span class="need-job-text-inner">
-													<span class="checkbox-circle-mark position-absolute"> </span>
-													<span class="need-job-icon">
-														<img src="assets/img/bt3.png" alt="">
-													</span>
-													<span class="need-job-text">
-														<span class="text-uppercase need-job-title">Php Developer</span>
-														<span class="text-capitalize need-job-text">Drop Designer</span>
-													</span>
-												</span>
-											</label>
-											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="Ux designer" class="j-checkbox">
-												<span class="need-job-text-inner">
-													<span class="checkbox-circle-mark position-absolute"> </span>
-													<span class="need-job-icon">
-														<img src="assets/img/nd1.png" alt="">
-													</span>
-													<span class="need-job-text">
-														<span class="text-uppercase need-job-title">Ux designer</span>
-														<span class="text-capitalize need-job-text">Drop Designer</span>
-													</span>
-												</span>
-											</label>
-											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="Ux designer" class="j-checkbox">
-												<span class="need-job-text-inner">
-													<span class="checkbox-circle-mark position-absolute"> </span>
-													<span class="need-job-icon">
-														<img src="assets/img/nd1.png" alt="">
-													</span>
-													<span class="need-job-text">
-														<span class="text-uppercase need-job-title">Ux designer</span>
-														<span class="text-capitalize need-job-text">Drop Designer</span>
-													</span>
-												</span>
-											</label>
+										<?php
+										}
+										?>
 										</div>
 									</div>
-									<div class="actions">
+									<div id="next-step1" class="actions">
 										<ul>
 											<li><span class="js-btn-next" title="NEXT">NEXT</span></li>
 										</ul>
@@ -159,13 +110,6 @@
 							<div class="multisteps-form__panel" data-animation="scaleIn">
 								<div class="wizard-forms form-step-2">
 									<span class="step-no position-absolute">Step 2</span>
-									<div class="wizard-progress">
-										<span>2 of 3 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 66%;">
-											</div>
-										</div>
-									</div>
 									<div class="wizard-inner-box">
 										<div class="inner-title text-center">
 											<h2>Please Send Detail ?</h2>
@@ -174,9 +118,9 @@
 									</div>
 									<div class="details-form-area">
 										<div class="row">
-											<div class="col-lg-4">
+											<div class="col-lg-6">
 												<div class="form-input-inner position-relative has-float-label">
-													<input type="text" name="first_name" placeholder="First Name" class="form-control" required>
+													<input type="text" name="first_name" placeholder="First Name" class="form-control required" required>
 													<label>First  Name</label>
 													<div class="icon-bg text-center">
 														<i class="fas fa-user"></i>
@@ -184,9 +128,9 @@
 													
 												</div>
 											</div>
-											<div class="col-lg-4">
+											<div class="col-lg-6">
 												<div class="form-input-inner position-relative has-float-label">
-													<input type="text" name="last_name" placeholder="Last Name" class="form-control">
+													<input type="text" name="last_name" placeholder="Last Name" class="form-control required" required>
 													<label>Last  Name</label>
 													<div class="icon-bg text-center">
 														<i class="fas fa-user"></i>
@@ -194,7 +138,7 @@
 													
 												</div>
 											</div>
-											<div class="col-lg-4">
+											<div class="col-lg-8">
 												<div class="form-input-inner position-relative has-float-label">
 													<input type="email" name="email" placeholder="Email" class="form-control required" required>
 													<label>Email</label>
@@ -205,27 +149,19 @@
 											</div>
 											<div class="col-lg-4">
 												<div class="form-input-inner position-relative has-float-label">
-													<input type="text" name="phone" placeholder="Phone" class="form-control" required>
+													<input type="text" name="phone" placeholder="Phone" class="form-control required" required>
 													<label>Phone</label>
 													<div class="icon-bg text-center">
 														<i class="fas fa-phone"></i>
 													</div>
 												</div>
 											</div>
-											<div class="col-lg-8">
-												<div class="form-input-inner select-option-area position-relative">
-													<select name="country_list">
-														<option>Select Country</option>
-														<option>England</option>
-														<option>Australia</option>
-														<option>Brazil</option>
-														<option>USA</option>
-														<option>Canada</option>
-														<option>UAE</option>
-														<option>Spain</option>
-													</select>
+											<div class="col-lg-12">
+												<div class="form-input-inner position-relative has-float-label">
+													<input type="text" name="address" placeholder="Address" class="form-control required" required>
+													<label>Address</label>
 													<div class="icon-bg text-center">
-														<i class="fas fa-flag-checkered"></i>
+														<i class="fas fa-bullhorn"></i>
 													</div>
 												</div>
 											</div>
@@ -235,16 +171,18 @@
 														<div class="row">
 															<div class="col-lg-6">
 																<div class="form-input-inner select-option-area position-relative">
-																	<select name="city_list">
-																		<option>Select City</option>
-																		<option>Barlin</option>
-																		<option>Sydney</option>
-																		<option>Madrid</option>
-																		<option>NY</option>
-																		<option>Toronto</option>
-																		<option>Dubai</option>
-																		<option>Chennai</option>
+																	<select name="country_list">
+																		<option>Indonesia</option>
 																	</select>
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-flag-checkered"></i>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-input-inner position-relative has-float-label">
+																	<input type="text" name="city_list" placeholder="City" class="form-control required" required>
+																	<label>City</label>
 																	<div class="icon-bg text-center">
 																		<i class="fas fa-handshake"></i>
 																	</div>
@@ -252,7 +190,7 @@
 															</div>
 															<div class="col-lg-6">
 																<div class="form-input-inner position-relative date-of-birth">
-																	<input data-date-format="dd/mm/yyyy" placeholder="Birth Day" class="datepicker">
+																	<input data-date-format="dd/mm/yyyy" placeholder="Birth Day" class="datepicker" required>
 																	<div class="icon-bg text-center">
 																		<i class="fas fa-bullhorn"></i>
 																	</div>
@@ -260,27 +198,10 @@
 															</div>
 															<div class="col-lg-6">
 																<div class="form-input-inner position-relative has-float-label">
-																	<input type="text" name="address" placeholder="Address 2" class="form-control">
-																	<label>Address</label>
+																	<input type="text" id="job_position" name="job_position" class="form-control" disabled>
+																	<label>Job Position</label>
 																	<div class="icon-bg text-center">
 																		<i class="fas fa-bullhorn"></i>
-																	</div>
-																</div>
-															</div>
-															<div class="col-lg-6">
-																<div class="form-input-inner select-option-area position-relative">
-																	<select name="position_list">
-																		<option>Choose Position</option>
-																		<option>Intern</option>
-																		<option>Junior Developer</option>
-																		<option>Senior Developer</option>
-																		<option>UI/UX Designer</option>
-																		<option>Designer</option>
-																		<option>HR</option>
-																		<option>Others</option>
-																	</select>
-																	<div class="icon-bg text-center">
-																		<i class="fas fa-user"></i>
 																	</div>
 																</div>
 															</div>
@@ -304,7 +225,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-input-inner add-textarea  position-relative">
+											<div class="form-input-inner add-textarea position-relative">
 												<div class="col-lg-12">
 													<textarea name="add_info" placeholder="Additional-info"></textarea>
 													<div class="icon-bg text-center">
@@ -314,7 +235,7 @@
 											</div>
 											<div class="wizard-document-upload">
 												<div class="custom-file form-input-inner position-relative">
-													<input type="file" class="custom-file-input" name="file_upload" id="customFile">
+													<input type="file" class="custom-file-input" name="file_upload" id="customFile" required>
 													<label class="custom-file-label" for="customFile">Add Your CV</label>
 													<div class="file-size-text position-relative">Only : pdf / doc Size: lessthan 1 Mb</div>
 													<div class="icon-bg text-center">
@@ -384,6 +305,18 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/switch.js"></script>
 		<script>
+			$("#need-job-slide-id label input").click(function (element) {
+				var el = element.currentTarget.value;
+				document.getElementById("job_position").value = el;
+			});
+
+			$("#next-step1 ul li span").click(function (element) {
+				if (!$("input[name='job_title']:checked").val()) {
+					location.reload();
+					alert('Please selected one job!');
+				}
+			});
+			
 			$("#customFile").change(function() {
 				filename = this.files[0].name
 			});

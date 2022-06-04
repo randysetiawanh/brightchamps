@@ -102,7 +102,7 @@ include 'connect.php';
 							<tr>
 								<th scope="col">Id</th>
 								<th scope="col">Job title</th>
-								<th scope="col">Name</th>
+								<th scope="col">First Name</th>
 								<th scope="col">Last name</th>
 								<th scope="col">Email</th>
 								<th scope="col">Phone</th>
@@ -110,7 +110,6 @@ include 'connect.php';
 								<th scope="col">City</th>
 								<th scope="col">Gender</th>
 								<th scope="col">Address</th>
-								<th scope="col">Position</th>
 								<th scope="col">Info</th>
 								<th scope="col">Resume</th>
 								<th scope="col">Action</th>
@@ -133,7 +132,6 @@ include 'connect.php';
 									<td><?php echo $city_list; ?></td>
 									<td><?php echo $gender; ?></td>
 									<td width="210"><?php echo $address; ?></td>
-									<td><?php echo $position_list; ?></td>
 									<td><?php echo $add_info; ?></td>
 									<td><a target="_blank" href="uploads/<?php echo $resume; ?>">View</a></td>
 									<td><a href="edit.php?edit_id=<?php echo $id;?>" class="btn btn-info">Edit</a> <a class="btn btn-danger" onClick="return confirm('Do you want to delete?');" href="result.php?id=<?php echo $id;?>">Delete</a></td>

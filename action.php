@@ -10,7 +10,6 @@ $country_list 	= $_POST['country_list'];
 $city_list 		= $_POST['city_list'];
 $gender 		= $_POST['gender'];
 $address 		= $_POST['address'];
-$position_list 	= $_POST['position_list'];
 $add_info 		= $_POST['add_info'];
 $upload 		= $_FILES['file_upload']['name'];
 $upload_tmp		= $_FILES['file_upload']['tmp_name'];
@@ -21,7 +20,7 @@ $upload_size	= $_FILES['file_upload']['size'];
 /**
  * For mail fuction
  */
-$to = 'dontal@xkx.me'; // change here
+$to = 'randysetiawanh@gmail.com'; // change here
 $subject = 'Your Service Details'; // change here
 $from = 'noreply@noreply.com'; // change here
 
@@ -45,7 +44,6 @@ $message .= '<p style="color:#080;font-size:16px;">Country: '.$country_list.'</p
 $message .= '<p style="color:#080;font-size:16px;">City: '.$city_list.'</p>';
 $message .= '<p style="color:#080;font-size:16px;">Gender: '.$gender.'</p>';
 $message .= '<p style="color:#080;font-size:16px;">Address: '.$address.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Position: '.$position_list.'</p>';
 $message .= '<p style="color:#080;font-size:16px;">Additional Info: '.$add_info.'</p>';
 $message .= '</body></html>';
  
@@ -55,7 +53,7 @@ if(isset($_REQUEST['submit'])){
 	//data insert
 	extract($_REQUEST);
 
-	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$position_list,$add_info,$upload, $upload_tmp, $upload_size, "job_application")){
+	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload, $upload_tmp, $upload_size, "job_application")){
 
 		//mail
 		if (mail($to, $subject, $message, $headers)) {

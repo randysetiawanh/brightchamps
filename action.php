@@ -1,5 +1,9 @@
 <?php
 include 'connect.php';
+if(!isset($_REQUEST['submit'])){
+    header('location:index.php');
+    die();
+}
 
 $job_title 		= $_POST['job_title'];
 $first_name 	= $_POST['first_name'];
@@ -15,54 +19,114 @@ $upload 		= $_FILES['file_upload']['name'];
 $upload_tmp		= $_FILES['file_upload']['tmp_name'];
 $upload_size	= $_FILES['file_upload']['size'];
 // etc
+?> 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="utf-8">
+	<title>BrightChamps</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 
-/**
- * For mail fuction
- */
-$to = 'randysetiawanh@gmail.com'; // change here
-$subject = 'Your Service Details'; // change here
-$from = 'noreply@noreply.com'; // change here
+<body>
+	<div class="clearfix"></div>
+	<div class="wrapper">
+		<div class="wizard-content-1 pos-flex clearfix">
+			<div class="steps d-inline-block clearfix">
+				<span class="bg-shape"></span>
+				<ul class="tablist multisteps-form__progress">
+					<li class="multisteps-form__progress-btn">
+						<div class="step-btn-icon-text">
+							<span>1</span>
+							<div class="step-btn-icon float-left position-relative">
+								<img src="assets/img/bt1.png" alt="">
+							</div>
+							<div class="step-btn-text">
+								<h2 class="text-uppercase">Job Board</h2>
+								<span class="text-capitalize">Job Available</span>
+							</div>
+						</div>
+					</li>
+					<li class="multisteps-form__progress-btn">
+						<div class="step-btn-icon-text">
+							<span>2</span>
+							<div class="step-btn-icon float-left position-relative">
+								<img class="fix-image" src="assets/img/bt2.png" alt="">
+							</div>
+							<div class="step-btn-text">
+								<h2 class="text-uppercase">Send Details</h2>
+								<span class="text-capitalize">Candidate Informations</span>
+							</div>
+						</div>
+					</li>
+					<li class="multisteps-form__progress-btn js-active current">
+						<div class="step-btn-icon-text">
+							<span>3</span>
+							<div class="step-btn-icon float-left position-relative">
+								<img class="fix-image-2" src="assets/img/bt3.png" alt="">
+							</div>
+							<div class="step-btn-text">
+								<h2 class="text-uppercase">ThankYou</h2>
+								<span class="text-capitalize">Job Submitted</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="step-inner-content clearfix position-relative">
+				<span class="bg-shape"></span>
+				<div class="form-area position-relative">
+					<div class="multisteps-form__panel js-active" data-animation="scaleIn">
+						<div class="wizard-forms form-step-3">
+							<span class="step-no position-absolute">Step 3</span>
+							<div class="wizard-inner-box">
+								<div class="thank-content text-center">
+									<div class="thank-img">
+										<img src="assets/img/th1.png" alt="">
+									</div>
+									<div class="thank-text">
+										<h2>Thankyou For submition!</h2>
+										<p><span id="thankyou-name"><?php echo $first_name; ?> <?php echo $last_name; ?></span> We will Email you soon</p>
+									</div>
+									<div class="thank-btn text-uppercase">
+										<a href="index.php">Back to home</a>
+									</div>
+								</div>
+							</div>
 
-// To send HTML mail, the Content-type header must be set
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
- 
-// Create email headers
-$headers .= 'From: '.$from."\r\n".
-    'Reply-To: '.$from."\r\n" .
-    'X-Mailer: PHP/' . phpversion();
- 
-// Compose a simple HTML email message
-$message = '<html><body>';
-$message .= '<p style="color:#080;font-size:18px;">You are register for '.$job_title.'</p>';
-$message .= '<h1 style="color:#f40;">Hi '.$first_name.'!</h1>';
-$message .= '<p style="color:#080;font-size:16px;">Last Name: '.$last_name.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Email: '.$email.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Phone: '.$phone.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Country: '.$country_list.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">City: '.$city_list.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Gender: '.$gender.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Address: '.$address.'</p>';
-$message .= '<p style="color:#080;font-size:16px;">Additional Info: '.$add_info.'</p>';
-$message .= '</body></html>';
- 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/form-step.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/switch.js"></script>
+</body>
+
+</html>
+<?php
 // Sending email
 if(isset($_REQUEST['submit'])){
 	
 	//data insert
 	extract($_REQUEST);
 
-	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload, $upload_tmp, $upload_size, "job_application")){
-
-		//mail
-		if (mail($to, $subject, $message, $headers)) {
-			echo 'Your mail has been sent successfully.';
-		} else {
-			echo 'Unable to send email. Please try again.';
-		}
-		// echo 'Data inserted';
-		header('location:view.php');
+	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload,$upload_tmp,$upload_size, "job_application")){
 	}
 	
 }

@@ -6,7 +6,7 @@ include 'connect.php';
 
 <head>
 	<meta charset="utf-8">
-	<title>Job V1</title>
+	<title>BrightChamps</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/owl.carousel.css">
@@ -62,7 +62,7 @@ include 'connect.php';
 				</div>
 				<div class="step-inner-content clearfix position-relative">
 					<span class="bg-shape"></span>
-					<form class="multisteps-form__form" action="action.php" id="wizard" method="POST" enctype="multipart/form-data">
+					<form class="multisteps-form__form" action="action.php" id="form" method="POST" enctype="multipart/form-data">
 						<div class="form-area position-relative">
 							<div class="multisteps-form__panel js-active" data-animation="scaleIn">
 								<div class="wizard-forms position-relative">
@@ -247,8 +247,8 @@ include 'connect.php';
 									</div>
 									<div class="actions">
 										<ul>
-											<li><span class="js-btn-prev" title="BACK"> Back</span></li>
-											<li><button type="submit" name="submit"><span class="js-btn-next" title="NEXT">Submit </span></button></li>
+											<li><span class="js-btn-prev" title="BACK">Back</span></li>
+											<li><button type="submit" class="js-btn-next" id="submit-step2" name="submit">Submit</button></li>
 										</ul>
 									</div>
 									<div class="bottom-vector position-absolute">
@@ -257,38 +257,6 @@ include 'connect.php';
 								</div>
 							</div>
 							<!-- step 2 -->
-							<div class="multisteps-form__panel" data-animation="scaleIn">
-								<div class="wizard-forms form-step-3">
-									<span class="step-no position-absolute">Step 3</span>
-									<div class="wizard-progress">
-										<span>3 of 3 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 100%;">
-											</div>
-										</div>
-									</div>
-									<div class="wizard-inner-box">
-										<div class="thank-content text-center">
-											<div class="thank-img">
-												<img src="assets/img/th1.png" alt="">
-											</div>
-											<div class="thank-text">
-												<h2>Thankyou For submition</h2>
-												<p><span>Mike Loen</span> We will Email you soon</p>
-											</div>
-											<div class="thank-subscribe position-relative">
-												<input class="email" name="subs_email" type="email" placeholder="Subcribe For daily update Jobs">
-												<button type="submit" name="email_submit" value="Submit"> <i class="fas fa-envelope"></i></button>
-											</div>
-											<div class="thank-btn text-uppercase">
-												<a href="index.html">Back to home</a>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-							<!-- step 3 -->
 						</div>
 					</form>
 				</div>

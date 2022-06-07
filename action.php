@@ -8,6 +8,7 @@ if(!isset($_REQUEST['submit'])){
 $job_title 		= $_POST['job_title'];
 $first_name 	= $_POST['first_name'];
 $last_name 		= $_POST['last_name'];
+$name			= $first_name.' '.$last_name;
 $email 			= $_POST['email'];
 $phone 			= $_POST['phone'];
 $country_list 	= $_POST['country_list'];
@@ -120,6 +121,13 @@ $upload_size	= $_FILES['file_upload']['size'];
 
 </html>
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'assets/phpmailer/src/Exception.php';
+require 'assets/phpmailer/src/PHPMailer.php';
+require 'assets/phpmailer/src/SMTP.php';
+
 // Sending email
 if(isset($_REQUEST['submit'])){
 	
@@ -127,6 +135,36 @@ if(isset($_REQUEST['submit'])){
 	extract($_REQUEST);
 
 	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload,$upload_tmp,$upload_size, "job_application")){
+		//Create an instance; passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+		try {
+			//Server settings
+			$mail->isSMTP();                                            //Send using SMTP
+			$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+			$mail->Username   = 'mini.mbul@gmail.com';                     //SMTP username
+			$mail->Password   = 'dquqersuwqfygleg';                               //SMTP password
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+			$mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+			//Recipients
+			$mail->setFrom('mini.mbul@gmail.com', 'Test');
+			$mail->addAddress(''.$email.'', ''.$name.'');     //Add a recipient
+
+			//Content
+			$mail->isHTML(true);
+			$email_template = 'assets/phpmailer/application-confirmation.html';
+			$message = file_get_contents($email_template);
+			$message = str_replace('%name%', $name, $message);
+
+			$mail->MsgHTML($message);
+			$mail->Subject = ''.$name.' - Thanks For The Submission!';
+			$mail->send();
+			echo 'Message has been sent';
+		} catch (Exception $e) {
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+		}
 	}
 	
 }

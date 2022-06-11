@@ -52,11 +52,10 @@ class CodenodForm{
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['id'] = $row['id'];
 			} else {
-				echo "Invalid username or password.";
 			}
 
 			if(isset($_SESSION['valid'])) {
-				header('Location: result.php');            
+				header('Location: ../index.php');            
 			}
 		}
 	}
@@ -122,7 +121,7 @@ class CodenodForm{
 	}
 
 	public function showAllJob($table){
-		$query=mysqli_query($this->conn,"SELECT $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.category_id ORDER BY $table.created ASC");
+		$query=mysqli_query($this->conn,"SELECT $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.category_id ORDER BY $table.job_name ASC");
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 

@@ -64,7 +64,7 @@ class CodenodForm{
 	/**
 	 * add user
 	 */
-	public function userAdd($name,$username,$email,$password)
+	public function userAdd($name,$username,$email,$password,$level_admin)
 	{
 		$password = md5($password);
 
@@ -80,7 +80,7 @@ class CodenodForm{
 				$query="INSERT INTO users SET username='$username', password='$password', name='$name', email='$email'";
 				$result = mysqli_query($this->conn,$query) or die(mysqli_connect_errno()."Data cannot inserted");
 				return $result;
-			} else { 
+			} else {
 				return false;
 			}
 
@@ -96,9 +96,9 @@ class CodenodForm{
 	/**
 	 * update user
 	 */
-	public function userUpdate($id,$name,$email,$password,$table){
+	public function userUpdate($id,$name,$username,$email,$password,$level_admin,$table){
 		$password = md5($password);
-		mysqli_query($this->conn,"UPDATE $table SET name='$name', email='$email', password='$password' WHERE id=$id") or die(mysqli_error($this->conn));
+		mysqli_query($this->conn,"UPDATE $table SET name='$name', username='$username', email='$email', password='$password', level_admin='$level_admin' WHERE id=$id") or die(mysqli_error($this->conn));
 		return true;
 		
 	}

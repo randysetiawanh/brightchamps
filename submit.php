@@ -151,7 +151,7 @@ if(isset($_REQUEST['submit'])){
 			//Recipients
 			$mail->setFrom('mini.mbul@gmail.com', 'Test');
 			$mail->addAddress(''.$email.'', ''.$name.'');     //Add a recipient
-			$mail->addBCC('bcc@example.com');
+			// $mail->addBCC('bcc@example.com');
 			
 			//Content
 			$mail->isHTML(true);
@@ -169,3 +169,4 @@ if(isset($_REQUEST['submit'])){
 	}
 	
 }
+?>

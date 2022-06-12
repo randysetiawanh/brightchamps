@@ -62,7 +62,7 @@ include 'connect.php';
 				</div>
 				<div class="step-inner-content clearfix position-relative">
 					<span class="bg-shape"></span>
-					<form class="multisteps-form__form" action="action.php" id="form" method="POST" enctype="multipart/form-data">
+					<form class="multisteps-form__form" action="submit.php" id="form" method="POST" enctype="multipart/form-data">
 						<div class="form-area position-relative">
 							<div class="multisteps-form__panel js-active" data-animation="scaleIn">
 								<div class="wizard-forms position-relative">

@@ -68,7 +68,7 @@ if($level_admin == 0){
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Navigation</li>
                     <li><a href="index.php"><i class="mdi mdi-home"></i><span class="nav-text">Home</span></a></li>
-                    <li><a href="application.php"><i class="mdi mdi-table"></i><span class="nav-text">Application List</span></a></li>
+                    <li><a href="application.php"><i class="mdi mdi-table"></i><span class="nav-text">Application Management</span></a></li>
                     <?php if($level_admin == 1){ ?>
                     <li><a href="users.php"><i class="mdi mdi-account"></i><span class="nav-text">Users Management</span></a></li>
                     <?php } ?>

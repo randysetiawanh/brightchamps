@@ -1,9 +1,13 @@
 <?php 
+include '../connect.php';
 session_start();
 if(!isset($_SESSION['valid'])) {
 	header('Location: users/login.php');
 }
-include '../connect.php';
+$level_admin = $_SESSION['level_admin'];
+if($level_admin == 0){
+    header('Location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +22,7 @@ include '../connect.php';
 
     <link href="./assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -65,6 +69,9 @@ include '../connect.php';
                     <li class="nav-label">Navigation</li>
                     <li><a href="index.php"><i class="mdi mdi-home"></i><span class="nav-text">Home</span></a></li>
                     <li><a href="application.php"><i class="mdi mdi-table"></i><span class="nav-text">Application List</span></a></li>
+                    <?php if($level_admin == 1){ ?>
+                    <li><a href="users.php"><i class="mdi mdi-account"></i><span class="nav-text">Users Management</span></a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

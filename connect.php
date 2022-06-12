@@ -50,6 +50,7 @@ class CodenodForm{
 				$validuser = $row['username'];
 				$_SESSION['valid'] = $validuser;
 				$_SESSION['name'] = $row['name'];
+				$_SESSION['level_admin'] = $row['level_admin'];
 				$_SESSION['id'] = $row['id'];
 			} else {
 			}

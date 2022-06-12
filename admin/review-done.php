@@ -81,13 +81,25 @@ $created        = $_POST['created'];
                     <div class="col-xl-12 col-xxl-12 col-lg-12 col-sm-12">
                         <div class="card text-white bg-success">
                             <div class="card-header">
-                                <h5 class="card-title text-white">Congrats! Candidate ... successfully updated!</h5>
+                                <h5 class="card-title text-white"><b>Congrats!</b> Candidate with name <b><?php echo $name; ?></b> is successfully updated!</h5>
                             </div>
                             <div class="card-body mb-0">
-                                <p class="card-text"><?php var_dump($_POST); ?></p>
-                                <p class="card-text"><?php var_dump($_REQUEST); ?></p>
-                                <p class="card-text"><?php echo $status_lower ?></p>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Here are the details of the changes:</p>
+                                <p class="card-text">
+                                    <h4><b>Candidate Information</b></h4>
+                                    <b>Contact Information :</b><br>
+                                    Name : <?php echo $name; ?><br>
+                                    Email : <?php echo $email; ?><br>
+                                    Phone : <?php echo $phone; ?><br><br>
+                                    <b>Address Information : </b><br>
+                                    <?php echo $address; ?><br>
+                                    <?php echo $city_list; ?>, <?php echo $country_list; ?><br><br>
+                                    <h4><b>Job Application</b></h4>
+                                    Job Position : <?php echo $job_title; ?><br>
+                                    Application Date : <?php echo $created; ?><br>
+                                    Application Status : <?php echo $status; ?>
+                                </p>
+                                <p class="card-text"><br>To avoid unwanted errors, please re-confirm the changes.</p>
                                 <a href="application.php" class="btn btn-dark btn-card">Go Application List</a>
                             </div>
                         </div>

@@ -226,51 +226,10 @@ class CodenodForm{
 	 * @param string $address address
 	 * @param db $table
 	 */
-	public function Update($id,$job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload,$upload_tmp,$upload_size,$table){
-		
-		$filename = $upload;
-		
-	    //upload file
-		if($filename != '')
-		{
-			$ext = pathinfo($filename, PATHINFO_EXTENSION);
-			$allowed = ['pdf', 'txt', 'doc', 'docx', 'png', 'jpg', 'jpeg',  'gif'];
-			//check if file type is valid
-			if (!in_array($ext, $allowed))
-			{
-				echo "You file extension must be .zip, .pdf, jpg, png, gif, doc or .docx";
-			} elseif ($upload_size > 1000000) { 
-				return "File too large!";
-			} else {
-			    //set target directory
-				$path = 'uploads/';
-
-				// get last record id
-				$sql = "SELECT max(id) as id from $table";
-				$result = mysqli_query($this->conn, $sql);
-
-				if ($result)
-				{
-					$row = mysqli_fetch_array($result);
-					$filename = ($row['id']+1) . '-' . $filename;
-				}
-				else
-					$filename = '1' . '-' . $filename;
-
-				$created = @date('Y-m-d H:i:s');
-
-				if(move_uploaded_file($upload_tmp,($path . $filename)) ) {
-					mysqli_query($this->conn,"UPDATE $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', add_info='$add_info', resume='$filename', created='$created' WHERE id=$id") or die(mysqli_error($this->conn));
-					return true;
-				} 
-			}
-		}
-		
+	public function Update($id,$status,$table){
+		mysqli_query($this->conn,"UPDATE $table SET status='$status' WHERE id=$id") or die(mysqli_error($this->conn));
+		return true;
 	}
-
-	
-
-
 }
 
 $obj=new CodenodForm;

@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['valid'])) {
-	header('Location: ../login.php');
+	header('Location: users/login.php');
 }
 include '../connect.php';
 ?>
@@ -12,7 +12,7 @@ include '../connect.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin BrightChamps</title>
+    <title>Application List</title>
     
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
 
@@ -26,7 +26,7 @@ include '../connect.php';
 
     <div id="main-wrapper">
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="index.php" class="brand-logo">
                 <span class="logo-abbr">Q</span>
                 <span class="logo-compact">Admin</span>
                 <span class="brand-title">Admin</span>
@@ -106,15 +106,14 @@ include '../connect.php';
                                         <thead>
                                             <tr>
                                                 <th scope="col">Date</th>
+                                                <th scope="col">Action</th>
                                                 <th scope="col">Job title</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Email</th>
-                                                <th scope="col">Phone</th>
                                                 <th scope="col">City</th>
                                                 <th scope="col">Gender</th>
                                                 <th scope="col">Resume</th>
-                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,22 +127,22 @@ include '../connect.php';
                                         ?>
                                             <tr>
                                                 <td><?php $dt = new DateTime($created); echo $dt->format('d/m/Y'); ?></td>
+                                                <td><div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-rounded btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                        <div class="dropdown-menu">
+                                                            <?php if($status == 'Pending'){ ?><a class="dropdown-item" href="review.php?review_id=<?php echo $id;?>">Review</a><?php } ?>
+                                                            <?php if($status == 'Rejected'){ ?><a class="dropdown-item" href="review.php?review_id=<?php echo $id;?>">Review Again</a><?php } ?>
+                                                            <a class="dropdown-item" onClick="return confirm('Do you want to delete?');" href="application.php?delete_id=<?php echo $id;?>">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td><?php echo $job_title; ?></td>
                                                 <td><span class="badge badge-rounded badge-<?php echo $classBtn ?>"><?php echo $status; ?></span></td>
                                                 <td><?php echo $first_name; ?> <?php echo $last_name; ?></td>
                                                 <td><?php echo $email; ?></td>
-                                                <td><?php echo $phone; ?></td>
                                                 <td><?php echo $city_list; ?></td>
                                                 <td><?php echo $gender; ?></td>
                                                 <td><a target="_blank" href="uploads/<?php echo $resume; ?>">View</a></td>
-                                                <td><div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-rounded btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="../edit.php?edit_id=<?php echo $id;?>">Edit</a>
-                                                            <a class="dropdown-item" onClick="return confirm('Do you want to delete?');" href="index.php?delete_id=<?php echo $id;?>">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
                                             </tr>
                                         <?php
                                             }

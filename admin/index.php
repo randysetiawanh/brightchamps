@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['valid'])) {
-	header('Location: ../login.php');
+	header('Location: users/login.php');
 }
 include '../connect.php';
 ?>
@@ -25,7 +25,7 @@ include '../connect.php';
 
     <div id="main-wrapper">
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="index.php" class="brand-logo">
                 <span class="logo-abbr">Q</span>
                 <span class="logo-compact">Admin</span>
                 <span class="brand-title">Admin</span>

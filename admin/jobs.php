@@ -113,9 +113,9 @@ if($level_admins == 0){
                                                                 <input type="text" class="form-control" name="job_name" value="" required>
                                                             </div>
                                                             <div class="form-group col-md-4">
-                                                                <label class="mr-sm-3 info">Level Users</label>
+                                                                <label class="mr-sm-3 info">Job Category</label>
                                                                 <select class="custom-select mr-sm-3" name="job_category" id="inlineFormCustomSelect" required>
-                                                                    <option value="" selected="true" disabled="disabled">- Selected Level -</option>
+                                                                    <option value="" selected="true" disabled="disabled">- Selected Category -</option>
                                                                     <?php
                                                                         $rows=$obj->showAll("job_category");
                                                                         $no = 1;

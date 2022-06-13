@@ -126,6 +126,11 @@ class CodenodForm{
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 
+	public function showAllApplication($table){
+		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id ORDER BY $table.created ASC");
+		return mysqli_fetch_all($query,MYSQLI_ASSOC);
+	}
+
 	/**
 	 * Insert value
 	 * @param [type] $job_title     [description]
@@ -215,6 +220,11 @@ class CodenodForm{
 	 */
 	public function editValue($id,$table){
 		$query=mysqli_query($this->conn,"SELECT * FROM $table WHERE id=$id") or die(mysqli_error($this->conn));
+		return mysqli_fetch_assoc($query);
+	}
+
+	public function editValueApplication($id,$table){
+		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id WHERE $table.id=$id") or die(mysqli_error($this->conn));
 		return mysqli_fetch_assoc($query);
 	}
 	

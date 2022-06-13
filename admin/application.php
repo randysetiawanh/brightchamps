@@ -75,7 +75,7 @@ if($level_admins == 0){
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $rows=$obj->showAll("job_application");
+                                            $rows=$obj->showAllApplication("job_application");
                                             foreach($rows as $info){
                                                 extract($info);
                                                 if ($status == 'Accepted'){ $classBtn = 'success'; }
@@ -93,13 +93,13 @@ if($level_admins == 0){
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><?php echo $job_title; ?></td>
+                                                <td><?php echo $job_name; ?></td>
                                                 <td><span class="badge badge-rounded badge-<?php echo $classBtn ?>"><?php echo $status; ?></span></td>
                                                 <td><?php echo $first_name; ?> <?php echo $last_name; ?></td>
                                                 <td><?php echo $email; ?></td>
                                                 <td><?php echo $city_list; ?></td>
                                                 <td><?php echo $gender; ?></td>
-                                                <td><a target="_blank" href="uploads/<?php echo $resume; ?>">View</a></td>
+                                                <td><a target="_blank" href="../uploads/<?php echo $resume; ?>">View</a></td>
                                             </tr>
                                         <?php
                                             }

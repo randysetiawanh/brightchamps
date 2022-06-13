@@ -6,7 +6,7 @@ if(!isset($_SESSION['valid'])) {
 }
 
 if(isset($_REQUEST['review_id'])){
-    extract($obj->editValue($_REQUEST['review_id'],"job_application"));
+    extract($obj->editValueApplication($_REQUEST['review_id'],"job_application"));
     if($status == 'Accepted'){
         echo "<script>alert('Status Job is already accepted! Please select another application.');</script>";
         header('Refresh: 0.1; URL=application.php');
@@ -91,7 +91,7 @@ $level_admins = $_SESSION['level_admin'];
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-2">
+                                        <div class="form-group col-md-12">
                                             <label>Resume</label><br>
                                             <a name="file_upload" href="../uploads/<?php echo $resume; ?>" class="btn btn-outline-info"> View </a><span> <?php echo $resume; ?></span>
                                         </div>
@@ -110,7 +110,7 @@ $level_admins = $_SESSION['level_admin'];
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <label>Job Position</label>
-                                                <input type="text" class="form-control" name="job_title" value="<?php echo $job_title; ?>" readonly>
+                                                <input type="text" class="form-control" name="job_title" value="<?php echo $job_name; ?>" readonly>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="mr-sm-3 info">Job Status</label>

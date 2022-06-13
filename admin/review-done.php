@@ -1,10 +1,11 @@
 <?php
 include '../connect.php';
+session_start();
 if(!isset($_REQUEST['submit'])){
     header('location:index.php');
     die();
 }
-$level_admin = $_SESSION['level_admin'];
+$level_admins = $_SESSION['level_admin'];
 
 $job_title 		= $_POST['job_title'];
 $status 		= $_POST['status'];
@@ -21,59 +22,22 @@ $address 		= $_POST['address'];
 $add_info 		= $_POST['add_info'];
 $created        = $_POST['created'];
 ?>
+<?php
+    $title = 'Review Done - '.$first_name.' '.$last_name.'';
+    $addon_style = '#';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Review Done</title>
-
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
-
-    <link rel="stylesheet" href="./assets/css/style.css">
-    
-</head>
+<?php require_once('./snip-head.php'); ?>
 
 <body>
     <div id="preloader"><div class="spinner"><div class="spinner-a"></div><div class="spinner-b"></div></div></div>
 
     <div id="main-wrapper">
-        <div class="nav-header">
-            <a href="index.php" class="brand-logo">
-                <span class="logo-abbr">Q</span>
-                <span class="logo-compact">Admin</span>
-                <span class="brand-title">Admin</span>
-            </a>
-
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="toggle-icon"><i class="icon-menu"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="header"> 
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                    </div>
-                </nav>
-            </div>
-        </div>
         
-        <div class="quixnav">           
-            <div class="quixnav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li class="nav-label">Navigation</li>
-                    <li><a href="index.php"><i class="mdi mdi-home"></i><span class="nav-text">Home</span></a></li>
-                    <li><a href="application.php"><i class="mdi mdi-table"></i><span class="nav-text">Application Management</span></a></li>
-                    <?php if($level_admin == 1){ ?>
-                    <li><a href="users.php"><i class="mdi mdi-account"></i><span class="nav-text">Users Management</span></a></li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
+        <?php require_once('./snip-header.php'); ?>
 
         <div class="content-body">
             <div class="container">
@@ -113,23 +77,10 @@ $created        = $_POST['created'];
             </div>
         </div>
         
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://themeforest.net/user/quixlab" target="_blank">Quixlab</a> 2019</p>
-            </div>
-        </div>
+        <?php require_once('./snip-footer.php'); ?>
     </div>
-    
-    <!-- Required vendors -->
-    <script src="./assets/vendor/jquery/jquery.min.js"></script>
-    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- Here is navigation script -->
-    <script src="./assets/vendor/quixnav/quixnav.min.js"></script>
-    <script src="./assets/js/quixnav-init.js"></script>
-    <script src="./assets/js/custom.min.js"></script>
-    <!-- Demo scripts -->
-    <script src="./assets/js/styleSwitcher.js"></script>
+
+    <?php require_once('./snip-scripts.php'); ?>
 
 </body>
 </html>

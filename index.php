@@ -70,7 +70,7 @@ include 'connect.php';
 									<div class="wizard-inner-box">
 										<div class="inner-title text-center">
 											<h2>What kind of Job You Need ?</h2>
-											<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas </p>
+											<p> </p>
 										</div>
 										<div id="need-job-slide-id" class="need-job-slide owl-carousel">
 										<?php
@@ -79,7 +79,7 @@ include 'connect.php';
 											extract($info);
 										?>
 											<label class="need-job-icon-text text-center">
-												<input type="radio" name="job_title" value="<?php echo $job_name; ?>" class="j-checkbox" required />
+												<input type="radio" name="job_title" value="<?php echo $id; ?>" placeholder="" class="j-checkbox" required />
 												<span class="need-job-text-inner">
 													<span class="checkbox-circle-mark position-absolute"> </span>
 													<span class="need-job-icon">
@@ -112,8 +112,8 @@ include 'connect.php';
 									<span class="step-no position-absolute">Step 2</span>
 									<div class="wizard-inner-box">
 										<div class="inner-title text-center">
-											<h2>Please Send Detail ?</h2>
-											<p>Tation argumentum et usu, dicit viderer  </p>
+											<h2>Please Input Information</h2>
+											<p>Candidates are expected to input the correct information. </p>
 										</div>
 									</div>
 									<div class="details-form-area">
@@ -169,6 +169,15 @@ include 'connect.php';
 												<div class="row">
 													<div class="col-lg-8">
 														<div class="row">
+															<div class="col-lg-12">
+																<div class="form-input-inner position-relative has-float-label">
+																	<input type="text" name="city_list" placeholder="City" class="form-control required" required>
+																	<label>City</label>
+																	<div class="icon-bg text-center">
+																		<i class="fas fa-handshake"></i>
+																	</div>
+																</div>
+															</div>
 															<div class="col-lg-6">
 																<div class="form-input-inner select-option-area position-relative">
 																	<select name="country_list">
@@ -180,26 +189,8 @@ include 'connect.php';
 																</div>
 															</div>
 															<div class="col-lg-6">
-																<div class="form-input-inner position-relative has-float-label">
-																	<input type="text" name="city_list" placeholder="City" class="form-control required" required>
-																	<label>City</label>
-																	<div class="icon-bg text-center">
-																		<i class="fas fa-handshake"></i>
-																	</div>
-																</div>
-															</div>
-															<div class="col-lg-6">
 																<div class="form-input-inner position-relative date-of-birth">
-																	<input data-date-format="dd/mm/yyyy" placeholder="Birth Day" class="datepicker" required>
-																	<div class="icon-bg text-center">
-																		<i class="fas fa-bullhorn"></i>
-																	</div>
-																</div>
-															</div>
-															<div class="col-lg-6">
-																<div class="form-input-inner position-relative has-float-label">
-																	<input type="text" id="job_position" name="job_position" class="form-control" disabled>
-																	<label>Job Position</label>
+																	<input data-date-format="yyyy-mm-dd" name="dob" placeholder="Birth Day" class="datepicker" required>
 																	<div class="icon-bg text-center">
 																		<i class="fas fa-bullhorn"></i>
 																	</div>
@@ -275,7 +266,7 @@ include 'connect.php';
 		<script>
 			$("#need-job-slide-id label input").click(function (element) {
 				var el = element.currentTarget.value;
-				document.getElementById("job_position").value = el;
+				document.getElementById("").value = el;
 			});
 
 			$("#next-step1 ul li span").click(function (element) {
@@ -294,7 +285,7 @@ include 'connect.php';
 			});
 			$('.datepicker').datepicker({
 				clearBtn: true,
-				format: "dd/mm/yyyy"
+				format: "yyyy-mm-dd"
 			});
 		</script>
 	</body>

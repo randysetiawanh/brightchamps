@@ -29,6 +29,7 @@
             <?php if($level_admins == 1){ ?>
             <li><a href="users.php"><i class="mdi mdi-account"></i><span class="nav-text">Users Management</span></a></li>
             <?php } ?>
+            <li><a href="jobs.php"><i class="mdi mdi-account-convert"></i><span class="nav-text">Jobs Management</span></a></li>
         </ul>
     </div>
 </div>

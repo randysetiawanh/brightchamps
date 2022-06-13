@@ -122,7 +122,7 @@ class CodenodForm{
 	}
 
 	public function showAllJob($table){
-		$query=mysqli_query($this->conn,"SELECT $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.category_id ORDER BY $table.job_name ASC");
+		$query=mysqli_query($this->conn,"SELECT $table.id, $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.id ORDER BY $table.job_name ASC");
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 
@@ -140,7 +140,7 @@ class CodenodForm{
 	 * @param [type] $add_info      [description]
 	 * @param [type] $table         [description]
 	 */
-	public function Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload, $upload_tmp, $upload_size, $table)
+	public function Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$dob,$address,$add_info,$upload, $upload_tmp, $upload_size, $table)
 	{
 		$filename = $upload;
 		
@@ -188,7 +188,7 @@ class CodenodForm{
 					}
 				} else {
 					if(move_uploaded_file($upload_tmp,($path . $filename)) ) {
-						mysqli_query($this->conn,"INSERT INTO $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', address='$address', add_info='$add_info', resume='$filename', created='$created'" ) or die(mysqli_error($this->conn));
+						mysqli_query($this->conn,"INSERT INTO $table SET job_title='$job_title', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', country_list='$country_list', city_list='$city_list', gender='$gender', dob='$dob', address='$address', add_info='$add_info', resume='$filename', created='$created'" ) or die(mysqli_error($this->conn));
 						return true;
 					} else {
 						echo "fail to upload";
@@ -229,6 +229,56 @@ class CodenodForm{
 	 */
 	public function Update($id,$status,$table){
 		mysqli_query($this->conn,"UPDATE $table SET status='$status' WHERE id=$id") or die(mysqli_error($this->conn));
+		return true;
+	}
+
+	public function jobsCategoryAdd($category){
+		if($category == "") {
+			$msgError = "Either category name field is empty.";
+		} else {
+			$sql="SELECT * FROM job_category WHERE category_name='$category'";
+
+			$check =  $this->conn->query($sql);
+			$count_row = $check->num_rows;
+			//if the username is not in db then insert to the table
+			if ($count_row == 0){
+				$query="INSERT INTO job_category SET category_name='$category'";
+				$result = mysqli_query($this->conn,$query) or die(mysqli_connect_errno()."Data cannot inserted");
+				return $result;
+			} else {
+				return false;
+			}
+
+			if(isset($_SESSION['valid'])) {
+				header('Location: user.php');            
+			}
+		}
+
+		return true;
+	}
+
+	public function jobsListAdd($job_name,$job_category){
+		if($job_name == "" || $job_category == "") {
+			$msgError = "Either category name field is empty.";
+		} else {
+			$sql="SELECT * FROM job_list WHERE job_name='$job_name'";
+
+			$check =  $this->conn->query($sql);
+			$count_row = $check->num_rows;
+			//if the username is not in db then insert to the table
+			if ($count_row == 0){
+				$query="INSERT INTO job_list SET job_name='$job_name',job_category='$job_category'";
+				$result = mysqli_query($this->conn,$query) or die(mysqli_connect_errno()."Data cannot inserted");
+				return $result;
+			} else {
+				return false;
+			}
+
+			if(isset($_SESSION['valid'])) {
+				header('Location: user.php');            
+			}
+		}
+
 		return true;
 	}
 }

@@ -14,6 +14,7 @@ $phone 			= $_POST['phone'];
 $country_list 	= $_POST['country_list'];
 $city_list 		= $_POST['city_list'];
 $gender 		= $_POST['gender'];
+$dob			= $_POST['dob'];
 $address 		= $_POST['address'];
 $add_info 		= $_POST['add_info'];
 $upload 		= $_FILES['file_upload']['name'];
@@ -134,7 +135,7 @@ if(isset($_REQUEST['submit'])){
 	//data insert
 	extract($_REQUEST);
 
-	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$address,$add_info,$upload,$upload_tmp,$upload_size, "job_application")){
+	if($obj->Insert($job_title,$first_name,$last_name,$email,$phone,$country_list,$city_list,$gender,$dob,$address,$add_info,$upload,$upload_tmp,$upload_size, "job_application")){
 		//Create an instance; passing `true` enables exceptions
 		$mail = new PHPMailer(true);
 
@@ -149,7 +150,7 @@ if(isset($_REQUEST['submit'])){
 			$mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 			//Recipients
-			$mail->setFrom('mini.mbul@gmail.com', 'Test');
+			$mail->setFrom('mini.mbul@gmail.com', 'BrightChamps');
 			$mail->addAddress(''.$email.'', ''.$name.'');     //Add a recipient
 			// $mail->addBCC('bcc@example.com');
 			

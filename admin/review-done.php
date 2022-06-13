@@ -106,7 +106,7 @@ if(isset($_REQUEST['submit'])){
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 			$mail->Port       = 587;
 
-			$mail->setFrom('mini.mbul@gmail.com', 'Test');
+			$mail->setFrom('mini.mbul@gmail.com', 'BrightChamps');
 			$mail->addAddress(''.$email.'', ''.$name.'');
 			// $mail->addBCC('bcc@example.com'); - Company Email
 			

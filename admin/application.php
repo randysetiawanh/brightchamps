@@ -5,7 +5,7 @@ if(!isset($_SESSION['valid'])) {
 	header('Location: users/login.php');
 }
 $level_admins = $_SESSION['level_admin'];
-if($level_admin == 0){
+if($level_admins == 0){
     header('Location: index.php');
 }
 ?>

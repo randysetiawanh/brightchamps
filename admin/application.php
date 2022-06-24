@@ -59,18 +59,20 @@ if($level_admins == 0){
                                 ?>
                                 
                                 <div class="table-responsive">
-                                    <table id="example" class="display" style="min-width: 845px">
+                                    <table id="example" class="display" style="min-width: 1900px">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Action</th>
-                                                <th scope="col">Job title</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">City</th>
-                                                <th scope="col">Gender</th>
-                                                <th scope="col">Resume</th>
+                                                <th width="80px" scope="col">Date</th>
+                                                <th width="80px" scope="col">Action</th>
+                                                <th width="200px" scope="col">Job title</th>
+                                                <th width="70px" scope="col">Status</th>
+                                                <th width="200px" scope="col">Name</th>
+                                                <th width="300px" scope="col">Email</th>
+                                                <th width="100px" scope="col">City</th>
+                                                <th width="60px" scope="col">Gender</th>
+                                                <th width="60px" scope="col">Resume</th>
+                                                <th width="150px" scope="col">Meet Date</th>
+                                                <th width="300px" scope="col">Meet Link</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,6 +82,7 @@ if($level_admins == 0){
                                                 extract($info);
                                                 if ($status == 'Accepted'){ $classBtn = 'success'; }
                                                 else if($status == 'Rejected') { $classBtn = 'danger'; }
+                                                else if($status == 'Interview') { $classBtn = 'warning'; }
                                                 else { $classBtn = 'primary'; }
                                         ?>
                                             <tr>
@@ -89,6 +92,7 @@ if($level_admins == 0){
                                                         <div class="dropdown-menu">
                                                             <?php if($status == 'Pending'){ ?><a class="dropdown-item" href="review.php?review_id=<?php echo $id;?>">Review</a><?php } ?>
                                                             <?php if($status == 'Rejected'){ ?><a class="dropdown-item" href="review.php?review_id=<?php echo $id;?>">Review Again</a><?php } ?>
+                                                            <?php if($status == 'Interview'){ ?><a class="dropdown-item" href="review.php?review_id=<?php echo $id;?>">Review Again</a><?php } ?>
                                                             <a class="dropdown-item" onClick="return confirm('Do you want to delete?');" href="application.php?delete_id=<?php echo $id;?>">Delete</a>
                                                         </div>
                                                     </div>
@@ -100,6 +104,8 @@ if($level_admins == 0){
                                                 <td><?php echo $city_list; ?></td>
                                                 <td><?php echo $gender; ?></td>
                                                 <td><a target="_blank" href="../uploads/<?php echo $resume; ?>">View</a></td>
+                                                <td><?php if($date_interview === NULL){echo '-';}else{$di = new DateTime($date_interview); echo $di->format('d/m/Y, h:i A');} ?></td>
+                                                <td><a href="#"><?php if($meet_interview === NULL){echo '-';}else{echo $meet_interview;} ?></a></td>
                                             </tr>
                                         <?php
                                             }

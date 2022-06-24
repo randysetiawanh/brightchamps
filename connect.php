@@ -10,7 +10,7 @@ class CodenodForm{
 	 */
 	public function __construct()
 	{
-		$this->conn=new mysqli("localhost","root","Minggu563","brightchamps") or die("connetion error!"); // please change with your mysql detail
+		$this->conn=new mysqli("localhost","root","","brightchamps") or die("connetion error!"); // please change with your mysql detail
 		
 	}
 
@@ -122,12 +122,12 @@ class CodenodForm{
 	}
 
 	public function showAllJob($table){
-		$query=mysqli_query($this->conn,"SELECT $table.id, $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.id ORDER BY $table.job_name ASC");
+		$query=mysqli_query($this->conn,"SELECT $table.id, $table.job_name, job_category.category_name FROM $table INNER JOIN job_category ON $table.job_category = job_category.id ORDER BY $table.id ASC");
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 
 	public function showAllApplication($table){
-		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id ORDER BY $table.created ASC");
+		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.date_interview, $table.meet_interview, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id ORDER BY $table.created ASC");
 		return mysqli_fetch_all($query,MYSQLI_ASSOC);
 	}
 
@@ -224,7 +224,7 @@ class CodenodForm{
 	}
 
 	public function editValueApplication($id,$table){
-		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id WHERE $table.id=$id") or die(mysqli_error($this->conn));
+		$query=mysqli_query($this->conn,"SELECT $table.id, job_list.job_name, $table.status, $table.first_name, $table.last_name, $table.email, $table.phone, $table.country_list, $table.city_list, $table.address, $table.gender, $table.dob, $table.add_info, $table.resume, $table.date_interview, $table.meet_interview, $table.created FROM $table INNER JOIN job_list ON $table.job_title = job_list.id WHERE $table.id=$id") or die(mysqli_error($this->conn));
 		return mysqli_fetch_assoc($query);
 	}
 	
@@ -237,8 +237,8 @@ class CodenodForm{
 	 * @param string $address address
 	 * @param db $table
 	 */
-	public function Update($id,$status,$table){
-		mysqli_query($this->conn,"UPDATE $table SET status='$status' WHERE id=$id") or die(mysqli_error($this->conn));
+	public function Update($id,$status,$meet_date,$meet_link,$table){
+		mysqli_query($this->conn,"UPDATE $table SET status='$status', date_interview='$meet_date', meet_interview='$meet_link' WHERE id=$id") or die(mysqli_error($this->conn));
 		return true;
 	}
 

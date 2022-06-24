@@ -20,6 +20,9 @@ $city_list 		= $_POST['city_list'];
 $gender 		= $_POST['gender'];
 $address 		= $_POST['address'];
 $add_info 		= $_POST['add_info'];
+$meet_date 		= $_POST['meet_date'];
+$meet_dates     = new DateTime($meet_date);
+$meet_link 		= $_POST['meet_link'];
 $created        = $_POST['created'];
 ?>
 <?php
@@ -62,11 +65,18 @@ $created        = $_POST['created'];
                                     Phone : <?php echo $phone; ?><br><br>
                                     <b>Address Information : </b><br>
                                     <?php echo $address; ?><br>
-                                    <?php echo $city_list; ?>, <?php echo $country_list; ?><br><br>
+                                    <?php echo $city_list; ?>, <?php echo $country_list; ?><br>
+                                    -------------------------------------------------------------------<br><br>
                                     <h4><b>Job Application</b></h4>
                                     Job Position : <?php echo $job_title; ?><br>
                                     Application Date : <?php echo $created; ?><br>
-                                    Application Status : <?php echo $status; ?>
+                                    Application Status : <?php echo $status; ?><br>
+                                    -------------------------------------------------------------------
+                                    <?php if($status=='Interview'){ ?>
+                                    <br><br><h4><b>Interview Detail</b></h4>
+                                    Interview Date : <?php echo $meet_dates->format('d-m-Y, h:i A'); ?><br>
+                                    Interview Meet Link : <a href="<?php echo $meet_link; ?>"><?php echo $meet_link; ?></a>
+                                    <?php } ?>
                                 </p>
                                 <p class="card-text"><br>To avoid unwanted errors, please re-confirm the changes.</p>
                                 <a href="application.php" class="btn btn-dark btn-card">Go Application List</a>
@@ -94,7 +104,7 @@ require '../assets/phpmailer/src/SMTP.php';
 
 if(isset($_REQUEST['submit'])){
 	extract($_REQUEST);
-	if($obj->Update($hidden_id,$status, "job_application")){
+	if($obj->Update($hidden_id,$status,$meet_date,$meet_link, "job_application")){
 		$mail = new PHPMailer(true);
 
 		try {
@@ -117,6 +127,8 @@ if(isset($_REQUEST['submit'])){
 			$message = str_replace('%job_name%', $job_title, $message);
 			$message = str_replace('%status%', $status, $message);
 			$message = str_replace('%application_date%', $created, $message);
+			$message = str_replace('%meet_date%', $meet_dates->format('d-m-Y, h:i A'), $message);
+			$message = str_replace('%meet_link%', $meet_link, $message);
 
 			$mail->MsgHTML($message);
 			$mail->Subject = ''.$name.' - Your Application in BrightChamps is '.$status.'.';

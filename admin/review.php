@@ -114,16 +114,29 @@ $level_admins = $_SESSION['level_admin'];
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="mr-sm-3 info">Job Status</label>
-                                                <select class="custom-select mr-sm-3" name="status" id="inlineFormCustomSelect" required>
+                                                <select class="custom-select mr-sm-3" name="status" id="selected_status" required>
                                                     <option value="" selected="true" disabled="disabled"><?php echo $status; ?></option>
-                                                    <?php if($status=='Rejected'){ ?><option value="Accepted">Accepted</option><?php } ?>
-                                                    <?php if($status=='Pending'){ ?><option value="Accepted">Accepted</option><option value="Rejected">Rejected</option><?php } ?>
+                                                    <?php if($status=='Rejected'){ ?><option value="Interview">Interview</option><option value="Accepted">Accepted</option><?php } ?>
+                                                    <?php if($status=='Pending'){ ?><option value="Interview">Interview</option><option value="Accepted">Accepted</option><option value="Rejected">Rejected</option><?php } ?>
+                                                    <?php if($status=='Interview'){ ?><option value="Accepted">Accepted</option><option value="Rejected">Rejected</option><?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label>Application Date</label>
                                                 <input type="text" class="form-control" name="created" value="<?php $dt = new DateTime($created); echo $dt->format('d/m/Y'); ?>" readonly>
                                             </div>
+                                        </div>
+                                        <div class="form-row" id="interview-input" style="display: <?php if($status=='Interview'){echo 'block';}else{echo 'none';} ?>;">
+                                            <div class="form-group col-md-3">
+                                                <label>Meet Date</label>
+                                                <input type="datetime-local" class="form-control" id="meet_date" name="meet_date" value="<?php echo $date_interview; ?>">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Meet Link <a href="https://meet.google.com/">(Get From This)</a></label>
+                                                <input type="text" class="form-control" id="meet_link" name="meet_link" placeholder="https://meet.google.com/yro-wrfj-doe" value="<?php echo $meet_interview; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <input type="hidden" name="hidden_id" value="<?php echo $id; ?>" />
                                                 <input type="submit" name="submit" onClick="return confirm('Do you want to update data?');" value="Update Data" class="btn btn-success btn-lg float-right">
@@ -142,6 +155,23 @@ $level_admins = $_SESSION['level_admin'];
     </div>
 
     <?php require_once('./snip-scripts.php'); ?>
+    <script>
+        const el = document.getElementById("selected_status");
+        const inputEl = document.getElementById("interview-input");
+        el.addEventListener("change", function() {
+        if (this.value != "Interview") {
+            inputEl.style.display = "none";
+            document.getElementById('meet_date').removeAttribute('required');
+            document.getElementById('meet_link').removeAttribute('required');
+        }
+        else {
+            inputEl.style.display = "block";
+            document.getElementById('meet_date').setAttribute('required', '');
+            document.getElementById('meet_link').setAttribute('required', '');
+        }
+        });
+
+    </script>
 
 </body>
 </html>
